@@ -120,6 +120,7 @@ h1 {
 
 /* HOME SECTION 2*/
 
+
 .sub-hero {
     display: block;
     justify-content: center;
@@ -150,6 +151,7 @@ h1 {
 
 .cta-rest {
     padding: 24px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -296,6 +298,16 @@ label input:focus {
 
 /* FOOTER */
 
-.sec-footer-cta {
+.footer-cta {
+    padding-top: 40px;
+    color: white;
+    text-align: center;
     background-color: #27292c;
+    height: 60vh;
+}
+
+.footer-cta p {
+    padding-top: 24px;
+    font-size: 12px;
+    font-weight: 200;
 }
