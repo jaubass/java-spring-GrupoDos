@@ -14,22 +14,25 @@
 <body>
     <!-- MENU DE NAVEGACION -->
     <header th:fragment="header">
-        <div class="nav">
-            <div class="logo">
-                <img src="/../static/img/logo-main-01.png" alt="logo" >
+        <nav th:fragment="nav">
+            <div class="nav">
+                <div class="logo">
+                    <img src="/../static/img/logo-main-01.png" alt="logo" >
+                </div>
+                <div class="menu">
+                    <ul class="main-menu">
+                        <li class="li-menu"><a href="product/list.html" th:href="@{/product/list}">HOME</a></li>
+                        <li class="li-menu"><a href="order/list.html" th:href="@{/order/list}">SERVICIOS</a></li>
+                        <li class="li-menu"><a href="subscribe.html" th:href="@{/subscribe}">RESTAURANTES</a></li>
+                        <li class="li-menu"><a href="subscribe.html" th:href="@{/subscribe}">CONTACTO</a></li>
+                    </ul>
+                </div>
+                <div class="get-started">
+                    <button class="btn-main-sec-gd">SIGN IN</button>
+                    <button class="btn-main-gd">SIGN UP</button>
+                </div>
             </div>
-            <div class="menu">
-                <ul class="main-menu">
-                    <li class="li-menu"><a href="product/list.html" th:href="@{/product/list}">HOME</a></li>
-                    <li class="li-menu"><a href="order/list.html" th:href="@{/order/list}">SERVICIOS</a></li>
-                    <li class="li-menu"><a href="subscribe.html" th:href="@{/subscribe}">RESTAURANTES</a></li>
-                </ul>
-            </div>
-            <div class="get-started">
-                <button class="btn-main-sec-gd">SIGN IN</button>
-                <button class="btn-main-gd">SIGN UP</button>
-            </div>
-        </div>
+        </nav>
     </header>
 
     <!-- BODY -->
@@ -38,6 +41,9 @@
     <!-- FOOTER -->
     <footer th:fragment="footer">
         <script th:src="@{/bootstrap.min.js}"></script>
+        <div class="se-footer-cta">
+
+        </div>
 
     </footer>
 </body>

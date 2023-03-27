@@ -5,7 +5,7 @@ p {
     font-size: 14px;
 }
 
-.h1 {
+h1 {
     font-family: 'Splash', cursive;
 }
 
@@ -80,4 +80,72 @@ p {
 .btn-main-sec-gd:hover {
     background-color: #f5f5f5;
 
+}
+
+/* HOME */
+
+.sec-home {
+    display: flex;
+    margin-top: 0px;
+    padding-top: 4rem;
+    padding-right: 12rem;
+    padding-left: 12rem;
+    background-image: url("../img/bg-home-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    align-items: center;
+}
+
+.home-cta {
+    flex: 1;
+
+}
+
+.text-cta {
+    color: white;
+    width: 50%;
+}
+
+.text-cta h1 {
+    font-size: 70px;
+}
+
+.text-cta p {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+/* HOME SECTION 2*/
+
+.sub-hero {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.sub-hero h1 {
+    font-size: 60px;
+    margin-bottom: 24px;
+}
+
+.sub-hero p {
+    font-size: 24px;
+    padding-right: 30%;
+    padding-left: 30%;
+}
+
+.fonth3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* FOOTER */
+
+.sec-footer-cta {
+    background-color: #27292c;
 }
