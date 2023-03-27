@@ -144,6 +144,156 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+.colText {
+    padding: 0px 12px 0px 12px;
+}
+
+.cta-rest {
+    padding: 24px;
+    text-align: center;
+}
+
+.btn-rest {
+    background-color: #343434;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+}
+
+.btn-rest:hover {
+    background-color: #343434b3;
+}
+
+/* SIGN UP */
+
+.section-singup {
+    background-image: url("../img/bg-signup-01.jpg");
+    height: 82vh;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    gap: 35px;
+    width: 450px;
+    margin: auto;
+
+}
+
+.encabezado {
+    margin-top: 60px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.buttons {
+    align-self: flex-start;
+    display: flex;
+    gap: 20px;
+}
+
+.section-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.section-inputs label input {
+    width: 80%;
+    background-color: #f3f3f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+label input {
+    width: 90%;
+    background-color: #f3f3f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+label span {
+    font-weight: 700;
+}
+
+label input:hover {
+    background-color: #ffffff;
+    border: solid 1px #ffffff;
+    box-shadow: 0 0 4px #a1b94a;
+}
+
+label input:focus {
+    background-color: #fff;
+    border: solid 1px #fff;
+    box-shadow: 0 0 4px #a1b94a;
+}
+
+.checkbox-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+}
+
+.checkbox-label span {
+    font-weight: 200;
+}
+
+.submit-btn {
+    background-color: #a1b94a;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 18px;
+}
+
+.copy a {
+    font-weight: 400;
+    color: #f3f3f4;
+}
+
 /* FOOTER */
 
 .sec-footer-cta {
