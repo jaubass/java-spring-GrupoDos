@@ -170,7 +170,7 @@ h1 {
 
 .section-singup {
     background-image: url("../img/bg-signup-01.jpg");
-    height: 82vh;
+    height: 90vh;
 }
 
 .container-form {
@@ -299,7 +299,7 @@ label input:focus {
 /* FOOTER */
 
 .footer-cta {
-    padding-top: 40px;
+    padding-top: 20px;
     color: white;
     text-align: center;
     background-color: #27292c;
