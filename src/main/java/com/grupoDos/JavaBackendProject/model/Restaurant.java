@@ -9,17 +9,24 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nombre;
-    private String direccion;
-    private Boolean available;
+    private String name;
+    private String email;
+    private int phone;
+    private String adress;
+    private String city;
+    private int postalCode;
+
 
     public Restaurant() {}
 
-    public Restaurant(Long id, String nombre, String direccion, Boolean available) {
+    public Restaurant(Long id, String name, String email, int phone, String adress, String city, int postalCode) {
         this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.available = available;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.adress = adress;
+        this.city = city;
+        this.postalCode = postalCode;
     }
 
     public Long getId() {
@@ -30,27 +37,51 @@ public class Restaurant {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Boolean getAvailable() {
-        return available;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setAvailable(Boolean available) {
-        this.available = available;
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 }

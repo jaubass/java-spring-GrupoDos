@@ -103,8 +103,9 @@ h1 {
 }
 
 .text-cta {
+    margin-top: -80px;
     color: white;
-    width: 50%;
+    width: 80%;
 }
 
 .text-cta h1 {
@@ -112,14 +113,16 @@ h1 {
 }
 
 .text-cta p {
+    padding: 24px 0px 12px 0px;
     font-size: 22px;
     font-weight: 600;
     text-transform: uppercase;
 
 }
 
-/* HOME SECTION 2*/
 
+
+/* HOME SECTION 2*/
 
 .sub-hero {
     display: block;
@@ -169,7 +172,8 @@ h1 {
 /* SIGN UP */
 
 .section-singup {
-    background-image: url("../img/bg-signup-01.jpg");
+    background-image: url("../img/bg-signup-02.jpg");
+    background-position: center;
     height: 90vh;
 }
 
@@ -186,7 +190,7 @@ h1 {
 }
 
 .encabezado {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 form {
