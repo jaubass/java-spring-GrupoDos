@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
 
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head">
+<head>
     <meta charset="UTF-8">
     <title>Template</title>
     <link rel="stylesheet" type="text/css" media="all"
@@ -14,30 +14,14 @@
 </head>
 
 <body>
+
 <!-- MENU DE NAVEGACION -->
 <header th:fragment="header">
-    <nav th:replace="nav">
-        <div class="nav">
-            <div class="logo">
-                <img src="/../static/img/logo-main-01.png" alt="logo" >
-            </div>
-            <div class="menu">
-                <ul class="main-menu">
-                    <li class="li-menu"><a href="product/list.html" th:href="@{/product/list}">HOME</a></li>
-                    <li class="li-menu"><a href="order/list.html" th:href="@{/order/list}">SERVICIOS</a></li>
-                    <li class="li-menu"><a href="subscribe.html" th:href="@{/subscribe}">RESTAURANTES</a></li>
-                    <li class="li-menu"><a href="subscribe.html" th:href="@{/subscribe}">CONTACTO</a></li>
-                </ul>
-            </div>
-            <div class="get-started">
-                <button class="btn-main-sec-gd">SIGN IN</button>
-                <button class="btn-main-gd">SIGN UP</button>
-            </div>
-        </div>
-    </nav>
+        <nav th:insert="components/navbar.html :: nav"></nav>
 </header>
 
 <!-- ELEMENTS -->
+
 <!-- HERO -->
 <div class="sec-home">
     <div class="home-cta">
@@ -48,9 +32,10 @@
         </div>
     </div>
     <div class="home-cta-img">
-        <img src="../static/img/img-cta-home-01.png" alt="plato" height="600px"/>
+        <img th:src="@{/../static/img/img-cta-home-01.png}" src="../static/img/img-cta-home-01.png" alt="plato" height="600px " />
     </div>
 </div>
+
 <!-- SUBHERO -->
 <div class="section-2">
     <div class="sub-hero">
@@ -83,10 +68,8 @@
 <div class="cta-rest"><button class="btn-rest">VER RESTAURANTES</button></div>
 
 <!-- FOOTER -->
-<div class="footer-cta">
-    <img src="../static/img/logo-footer-01.png" height="400px"/>
-<p>All right reserved - Grupo Dos</p>
-</div>
+<div th:insert="components/footer.html :: footer"></div>
+
 
 
 </body>
