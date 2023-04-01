@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:insert="components/head.html :: head">
-</head>
+
+<!-- HEAD -->
+<head th:insert="components/head.html :: head"></head>
+
 <body>
     <!-- MENU DE NAVEGACION -->
-    <header th:fragment="header">
-        <nav th:insert="components/navbar.html :: nav"></nav>
-    </header>
+    <header><nav th:insert="components/navbar.html :: nav"></nav></header>
 
     <!-- BODY -->
     <div class="container"></div>
 
     <!-- FOOTER -->
-    <footer th:fragment="footer">
-        <script th:src="@{/bootstrap.min.js}"></script>
-        <div class="se-footer-cta">
+    <div th:insert="components/footer.html :: footer"></div>
 
-        </div>
-
-    </footer>
 </body>
 </html>

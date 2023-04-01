@@ -9,6 +9,10 @@ h1 {
     font-family: 'Splash', cursive;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* MENU */
 
 .nav {
@@ -49,6 +53,10 @@ h1 {
 
 .get-started {
     margin-left: 24px;
+}
+
+.get-started a {
+    text-decoration: none;
 }
 
 /* BOTONES */
