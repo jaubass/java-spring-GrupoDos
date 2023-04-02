@@ -6,12 +6,13 @@
         <div class="menu">
             <ul class="main-menu">
                 <li class="li-menu"><a th:href="@{/inicio}">HOME</a></li>
+                <li class="li-menu"><a th:href="@{/template}">TEMPLATE</a></li>
                 <li class="li-menu"><a href="order/list.html" th:href="@{#}">SERVICIOS</a></li>
                 <li class="li-menu"><a href="subscribe.html" th:href="@{#}">RESTAURANTES</a></li>
             </ul>
         </div>
         <div class="get-started">
-            <a class="btn-main-sec-gd">SIGN IN</a>
+            <a class="btn-main-sec-gd" th:href="@{/signin}">SIGN IN</a>
             <a class="btn-main-gd" th:href="@{/signup}">SIGN UP</a>
         </div>
     </div>

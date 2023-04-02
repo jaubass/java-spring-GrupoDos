@@ -15,11 +15,12 @@ public class Restaurant {
     private String adress;
     private String city;
     private int postalCode;
+    private String web;
 
 
     public Restaurant() {}
 
-    public Restaurant(Long id, String name, String email, int phone, String adress, String city, int postalCode) {
+    public Restaurant(Long id, String name, String email, int phone, String adress, String city, int postalCode, String web) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -27,6 +28,7 @@ public class Restaurant {
         this.adress = adress;
         this.city = city;
         this.postalCode = postalCode;
+        this.web = web;
     }
 
     public Long getId() {
@@ -83,5 +85,13 @@ public class Restaurant {
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
     }
 }
