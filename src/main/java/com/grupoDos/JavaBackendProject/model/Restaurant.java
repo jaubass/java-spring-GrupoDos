@@ -17,7 +17,6 @@ public class Restaurant {
     private int postalCode;
     private String web;
 
-
     public Restaurant() {}
 
     public Restaurant(Long id, String name, String email, int phone, String adress, String city, int postalCode, String web) {

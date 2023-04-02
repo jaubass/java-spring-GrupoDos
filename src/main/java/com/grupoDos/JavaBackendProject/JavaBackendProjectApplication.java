@@ -29,5 +29,9 @@ public class JavaBackendProjectApplication {
 		//RETRIEVE RESTAURANTS
 		System.out.println(repository.findAll().size());
 
+		//DELETE RESTAURANTS
+		repository.deleteAll();
+		System.out.println(repository.findAll().size());
+
 	}
 }

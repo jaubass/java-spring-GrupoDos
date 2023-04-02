@@ -12,52 +12,54 @@
 <!-- ELEMENTS -->
 
 <!-- HERO -->
-<div class="sec-home">
-    <div class="home-cta">
-        <div class="text-cta">
-            <h1>Italian Food</h1>
-            <p>Te llevamos la mejor comida italiana hasta la puerta de tu casa</p>
-            <button class="btn-main-gd">REGISTRATE</button>
+    <div class="sec-home">
+        <div class="home-cta">
+            <div class="text-cta">
+                <h1>Italian Food</h1>
+                <p>Te llevamos la mejor comida italiana hasta la puerta de tu casa</p>
+                <a class="btn-main-gd" th:href="@{/signup}">REGÍSTRATE</a>
+            </div>
+        </div>
+        <div class="home-cta-img">
+            <img src="../static/img/img-cta-home-01.png" height="600px " th:src="@{/img/img-cta-home-01.png}"  />
         </div>
     </div>
-    <div class="home-cta-img">
-        <img src="../static/img/img-cta-home-01.png" height="600px " th:src="@{/img/img-cta-home-01.png}"  />
-    </div>
-</div>
 
-<!-- SUBHERO -->
-<div class="section-2">
-    <div class="sub-hero">
-        <h1>Para casa by Grupo Dos</h1>
-        <p>¡Para Casa! es una iniciativa de Grupo Dos que reúne los mejores restaurantes italianos del mundo y te los trae a la puerta de casa. Lo mejor de la comido Italiana, para tí.  </p>
-    </div>
-</div>
-<div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col-sm">
-            <img src="/img/plato01.jpg" alt="plato" th:src="@{/img/plato01.jpg}">
-            <h4 class="fonth3">Restaurante Piamonte</h4>
-            <hr>
-            <p class="colText">El Piamonte es una de las veinte regiones que conforman la República Italiana. Su capital es Turín. Está ubicada en Italia noroccidental.</p>
-        </div>
-        <div class="col-sm">
-            <img src="/img/plato02.jpg" alt="plato" th:src="@{/img/plato02.jpg}">
-            <h4 class="fonth3">Restaurante Napoli</h4>
-            <hr>
-            <p class="colText">Nápoles es la ciudad más poblada del sur de Italia, capital de la región de Campania, y de la Ciudad metropolitana de Nápoles. </p>
-        </div>
-        <div class="col-sm">
-            <img src="/img/plato03.jpg" alt="plato" th:src="@{/img/plato03.jpg}">
-            <h4 class="fonth3">Restaurante Roma</h4>
-            <hr>
-            <p class="colText">Roma es una ciudad italiana, capital de la región del Lacio y de Italia. Con una población de 2 857 321 habitantes.</p>
+    <!-- SUBHERO -->
+    <div class="section-2">
+        <div class="sub-hero">
+            <h1>Para casa by Grupo Dos</h1>
+            <p>¡Para Casa! es una iniciativa de Grupo Dos que reúne los mejores restaurantes italianos del mundo y te los trae a la puerta de casa. Lo mejor de la comido Italiana, para tí.  </p>
         </div>
     </div>
-</div>
-<div class="cta-rest"><button class="btn-rest">VER RESTAURANTES</button></div>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col-sm">
+                <img src="/img/plato01.jpg" alt="plato" th:src="@{/img/plato01.jpg}">
+                <h4 class="fonth3">Restaurante Piamonte</h4>
+                <hr>
+                <p class="colText">El Piamonte es una de las veinte regiones que conforman la República Italiana. Su capital es Turín. Está ubicada en Italia noroccidental.</p>
+            </div>
+            <div class="col-sm">
+                <img src="/img/plato02.jpg" alt="plato" th:src="@{/img/plato02.jpg}">
+                <h4 class="fonth3">Restaurante Napoli</h4>
+                <hr>
+                <p class="colText">Nápoles es la ciudad más poblada del sur de Italia, capital de la región de Campania, y de la Ciudad metropolitana de Nápoles. </p>
+            </div>
+            <div class="col-sm">
+                <img src="/img/plato03.jpg" alt="plato" th:src="@{/img/plato03.jpg}">
+                <h4 class="fonth3">Restaurante Roma</h4>
+                <hr>
+                <p class="colText">Roma es una ciudad italiana, capital de la región del Lacio y de Italia. Con una población de 2 857 321 habitantes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="cta-rest">
+        <a class="btn-rest" th:href="@{/restaurants}">VER RESTAURANTES</a>
+    </div>
 
-<!-- FOOTER -->
-<div th:insert="components/footer.html :: footer"></div>
+    <!-- FOOTER -->
+    <div th:insert="components/footer.html :: footer"></div>
 
 </body>
 </html>
