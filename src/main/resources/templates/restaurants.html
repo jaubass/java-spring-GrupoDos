@@ -10,36 +10,32 @@
 
 <!-- BODY -->
 <div class="container">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="sec-tabrest"><h1>Restaurantes</h1></div>
+  <div class="section-tabrest">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">RESTAURANTE</th>
+        <th scope="col">MAIL</th>
+        <th scope="col">TELÉFONO</th>
+        <th scope="col">DIRECCIÓN</th>
+        <th scope="col">CIUDAD</th>
+        <th scope="col">CP</th>
+        <th scope="col">DIRECCIÓN</th>
+      </tr>
+      </thead>
+      <tr th:each="restaurant, index : ${restaurant}">
+        <td th:text="${restaurant.name}"></td>
+        <td th:text="${restaurant.email}"></td>
+        <td th:text="${restaurant.phone}"></td>
+        <td th:text="${restaurant.adress}"></td>
+        <td th:text="${restaurant.city}"></td>
+        <td th:text="${restaurant.postalCode}"></td>
+        <td th:text="${restaurant.web}"></td>
+      </tr>
+    </table>
   </div>
+</div>
 
   <!-- TO DO -->
 </div>
