@@ -10,17 +10,19 @@ public class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long restaurantId;
     private String name;
     private String description;
-    private Float price;
+    private Double price;
     private String category;
 
     // Constructors
     public MenuItem() {
     }
 
-    public MenuItem(Long id, String name, String description, Float price, String category) {
+    public MenuItem(Long id, Long restaurantId, String name, String description, Double price, String category) {
         this.id = id;
+        this.restaurantId = restaurantId;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -35,6 +37,14 @@ public class MenuItem {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public String getName() {
@@ -53,11 +63,11 @@ public class MenuItem {
         this.description = description;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
