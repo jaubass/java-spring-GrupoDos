@@ -15,6 +15,7 @@ public class RestaurantService implements GenericService<Restaurant>{
     @Autowired
     private RestaurantRepository repository;
 
+
     @Override
     @Transactional //Realiza un roll back si no se puede ejecutar
     public List<Restaurant> findAll() throws Exception {

@@ -1,6 +1,7 @@
 package com.grupoDos.JavaBackendProject.model;
 
 import jakarta.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "restaurantes")
@@ -9,6 +10,7 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message = "{NotEmpty.Restautant.name}")
     private String name;
     private String email;
     private int phone;
@@ -16,6 +18,7 @@ public class Restaurant {
     private String city;
     private int postalCode;
     private String web;
+    private String rutaImg;
 
     public Restaurant() {}
 
@@ -28,6 +31,7 @@ public class Restaurant {
         this.city = city;
         this.postalCode = postalCode;
         this.web = web;
+
     }
 
     public Long getId() {
