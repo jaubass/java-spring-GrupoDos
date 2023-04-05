@@ -2,6 +2,7 @@ package com.grupoDos.JavaBackendProject;
 
 import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.MenuItem;
+import com.grupoDos.JavaBackendProject.model.Restaurant;
 import com.grupoDos.JavaBackendProject.repository.CustomerRepository;
 import com.grupoDos.JavaBackendProject.repository.MenuItemRepository;
 import com.grupoDos.JavaBackendProject.repository.RestaurantRepository;

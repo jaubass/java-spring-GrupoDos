@@ -64,7 +64,7 @@ public class MenuItem {
     }
 
     public Double getPrice() {
-        return price;
+        return Math.round(price * 100.0) / 100.0;
     }
 
     public void setPrice(Double price) {
