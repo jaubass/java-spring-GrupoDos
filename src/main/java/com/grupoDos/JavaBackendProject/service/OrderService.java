@@ -1,7 +1,8 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import com.grupoDos.JavaBackendProject.model.Order;
 import com.grupoDos.JavaBackendProject.model.OrderItem;
-import com.grupoDos.JavaBackendProject.repository.OrderItemRepository;
+import com.grupoDos.JavaBackendProject.repository.OrderRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,16 +11,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OrderItemService implements GenericService<OrderItem> {
+public class OrderService implements GenericService<Order> {
 
     @Autowired
-    private OrderItemRepository repository;
+    private OrderRepository repository;
 
     @Override
     @Transactional
-    public List<OrderItem> findAll() throws Exception {
+    public List<Order> findAll() throws Exception {
         try {
-            List<OrderItem> entities = this.repository.findAll();
+            List<Order> entities = this.repository.findAll();
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -28,9 +29,9 @@ public class OrderItemService implements GenericService<OrderItem> {
 
     @Override
     @Transactional
-    public OrderItem findById(long id) throws Exception {
+    public Order findById(long id) throws Exception {
         try {
-            Optional<OrderItem> opt = this.repository.findById(id);
+            Optional<Order> opt = this.repository.findById(id);
             return opt.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -39,10 +40,10 @@ public class OrderItemService implements GenericService<OrderItem> {
 
     @Override
     @Transactional
-    public OrderItem saveOne(OrderItem entity) throws Exception {
+    public Order saveOne(Order entity) throws Exception {
         try {
-            OrderItem orderItem = this.repository.save(entity);
-            return orderItem;
+            Order order = this.repository.save(entity);
+            return order;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -50,12 +51,12 @@ public class OrderItemService implements GenericService<OrderItem> {
 
     @Override
     @Transactional
-    public OrderItem updateOne(OrderItem entity, long id) throws Exception {
+    public Order updateOne(Order entity, long id) throws Exception {
         try {
-            Optional<OrderItem> opt = this.repository.findById(id);
-            OrderItem orderItem = opt.get();
-            orderItem = this.repository.save(entity);
-            return orderItem;
+            Optional<Order> opt = this.repository.findById(id);
+            Order order = opt.get();
+            order = this.repository.save(entity);
+            return order;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -65,7 +66,7 @@ public class OrderItemService implements GenericService<OrderItem> {
     @Transactional
     public boolean deleteById(long id) throws Exception {
         try {
-            Optional<OrderItem> opt = this.repository.findById(id);
+            Optional<Order> opt = this.repository.findById(id);
             this.repository.deleteById(opt.get().getId());
             return true;
         } catch (Exception e) {
@@ -73,13 +74,4 @@ public class OrderItemService implements GenericService<OrderItem> {
         }
     }
 
-    @Transactional
-    public List<OrderItem> findByOrderId(long orderId) throws Exception {
-        try {
-            List<OrderItem> entities = this.repository.findByOrderId(orderId);
-            return entities;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
 }

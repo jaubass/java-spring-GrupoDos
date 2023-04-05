@@ -17,8 +17,6 @@ public class OrderItem {
     private Float price;
 
     // Constructors
-
-
     public OrderItem() {
     }
 
