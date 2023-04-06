@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:insert="components/head.html :: head"></head>
+
+<body>
+<!-- MENU DE NAVEGACION -->
+<header><nav th:insert="components/navbar.html :: nav"></nav></header>
+
+<!-- FORMULARIO SIGN UP -->
+<div class="section-singup">
+    <div class="container-form">
+        <h1 id="titulo" class="encabezado">Sign In</h1>
+        <form action="" method="">
+                <label for="name">
+                    <span>Name</span>
+                    <input id="name" type="text" name="name"/>
+                </label>
+            <label for="password">
+                <span class="">Password</span>
+                <input id="password" type="text" name="password" placeholder="6+ characters"/>
+            </label>
+            <button type="submit" class="submit-btn2">Inicia sesión</button>
+        </form>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="components/footer.html :: footer"></div>
+
+</body>
+</html>
