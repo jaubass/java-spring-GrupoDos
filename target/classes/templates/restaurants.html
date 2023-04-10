@@ -11,48 +11,40 @@
 <!-- BODY -->
 <!-- BOOTSTRAP TABLE -->
 <div class="container">
-  <div class="sec-tabrest"><h1>Restaurantes</h1></div>
-  <div class="section-tabrest">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th scope="col">RESTAURANTE</th>
-        <th scope="col">MAIL</th>
-        <th scope="col">TELÉFONO</th>
-        <th scope="col">DIRECCIÓN</th>
-        <th scope="col">CIUDAD</th>
-        <th scope="col">CP</th>
-        <th scope="col">WEB</th>
-      </tr>
-      </thead>
-      <tr th:each="restaurant, index : ${restaurant}">
-        <td th:text="${restaurant.name}"></td>
-        <td th:text="${restaurant.email}"></td>
-        <td th:text="${restaurant.phone}"></td>
-        <td th:text="${restaurant.adress}"></td>
-        <td th:text="${restaurant.city}"></td>
-        <td th:text="${restaurant.postalCode}"></td>
-        <td th:text="${restaurant.web}"></td>
-      </tr>
-    </table>
-  </div>
-</div>
-<!-- COLUMNS
-<div class="container">
-  <div class="row align-items-start">
-    <div th:each="restaurant, index : ${restaurant}" class="col-3">
-      <h1 th:text="${restaurant.name}"></h1>
-      <p th:text="${restaurant.email}"></p>
-      <p th:text="${restaurant.phone}"></p>
-      <p th:text="${restaurant.adress}"></p>
-      <p th:text="${restaurant.city}"></p>
-      <p th:text="${restaurant.postalCode}"></p>
-      <p th:text="${restaurant.web}"></p>
+  <div class="sec-tabrest"><h1>Restaurantes</h1>
+    <div class="section-tabrest">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">LOGO</th>
+          <th scope="col">ID</th>
+          <th scope="col">RESTAURANTE</th>
+          <th scope="col">MAIL</th>
+          <th scope="col">TELÉFONO</th>
+          <th scope="col">DIRECCIÓN</th>
+          <th scope="col">CIUDAD</th>
+          <th scope="col">CP</th>
+          <th scope="col">WEB</th>
+        </tr>
+        </thead>
+        <tr th:each="restaurant, index : ${restaurant}">
+          <td>
+            <img th:src="@{/__${'img/' + restaurant.image}__}" width="80px" height="80px">
+          </td>
+          <td th:text="${restaurant.id}"></td>
+          <td th:text="${restaurant.name}"></td>
+          <td th:text="${restaurant.email}"></td>
+          <td th:text="${restaurant.phone}"></td>
+          <td th:text="${restaurant.adress}"></td>
+          <td th:text="${restaurant.city}"></td>
+          <td th:text="${restaurant.postalCode}"></td>
+          <td th:text="${restaurant.web}"></td>
+        </tr>
+      </table>
     </div>
   </div>
-
 </div>
--->
+
 <!-- FOOTER -->
 <div th:insert="components/footer.html :: footer"></div>
 

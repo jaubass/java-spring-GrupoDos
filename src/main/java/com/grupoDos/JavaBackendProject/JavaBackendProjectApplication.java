@@ -17,7 +17,10 @@ public class JavaBackendProjectApplication {
 
 		//Get customers
 		ClienteRepository repository2 = context.getBean(ClienteRepository.class);
-		
+
+		//CRATE CUSTOMERS
+
+
 		//CREATE RESTAURANTS
 		/*
 		Restaurant restaurant1 = new Restaurant
