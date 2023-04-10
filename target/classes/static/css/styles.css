@@ -1,0 +1,382 @@
+/* TEXTO */
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    font-family: 'Splash', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* MENU */
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 4rem;
+    border-bottom: solid 1px #ddd;
+    align-items: center;
+}
+
+.main-menu {
+    margin-bottom: 0px;
+}
+
+.li-menu {
+    font-size: 0.8rem;
+    list-style: none;
+    margin-left: 44px;
+    display: inline;
+}
+
+.menu a {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    text-decoration: none;
+    gap: 20px;
+}
+
+.menu a:hover {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: underline;
+}
+
+.logo img {
+    max-width: 10rem;
+}
+
+.get-started {
+    margin-left: 24px;
+}
+
+.get-started a {
+    text-decoration: none;
+}
+
+/* BOTONES */
+
+.btn-main-gd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: #a1b94a;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+.btn-main-gd:hover {
+    background-color: #a1b94ab3;
+}
+
+.btn-main-sec-gd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+.btn-main-sec-gd:hover {
+    background-color: #f5f5f5;
+
+}
+
+/* HOME */
+
+.sec-home {
+    display: flex;
+    margin-top: 0px;
+    padding-top: 4rem;
+    padding-right: 12rem;
+    padding-left: 12rem;
+    background-image: url("../img/bg-home-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    align-items: center;
+}
+
+.home-cta {
+    flex: 1;
+
+}
+
+.text-cta {
+    margin-top: -80px;
+    color: white;
+    width: 80%;
+}
+
+.text-cta a{
+    text-decoration: none;
+    margin-top: 24px;
+}
+
+.text-cta h1 {
+    font-size: 70px;
+}
+
+.text-cta p {
+    padding: 24px 0px 12px 0px;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.section-btnreg {
+    padding-top: 24px;
+}
+
+.btn-hero-gd {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    background-color: #a1b94a;
+    color: white;
+    border-radius: 0.25rem;
+    border: none;
+    margin-top: 24px;
+    padding: 16px 32px;
+}
+
+.btn-hero-gd:hover {
+    background-color: #a1b94ab3;
+}
+
+
+/* HOME SECTION 2*/
+
+.sub-hero {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.sub-hero h1 {
+    font-size: 60px;
+    margin-bottom: 24px;
+}
+
+.sub-hero p {
+    font-size: 24px;
+    padding-right: 30%;
+    padding-left: 30%;
+}
+
+.fonth3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.colText {
+    padding: 0px 12px 0px 12px;
+}
+
+.cta-rest {
+    padding: 70px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.btn-rest {
+    margin-top: 30px;
+    text-decoration: none;
+    background-color: #343434;
+    color: white;
+    padding: 24px 48px;
+    border-radius: 12px;
+}
+
+.btn-rest:hover {
+    background-color: #343434b3;
+}
+
+/* SIGN UP */
+
+.section-singup {
+    background-image: url("../img/bg-signup-02.jpg");
+    background-position: center;
+    height: 90vh;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    gap: 35px;
+    width: 450px;
+    margin: auto;
+
+}
+
+.encabezado {
+    margin-top: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.buttons {
+    align-self: flex-start;
+    display: flex;
+    gap: 20px;
+}
+
+.section-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.section-inputs label input {
+    width: 80%;
+    background-color: #f3f3f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+label input {
+    width: 90%;
+    background-color: #f3f3f4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+label span {
+    font-weight: 700;
+}
+
+label input:hover {
+    background-color: #ffffff;
+    border: solid 1px #ffffff;
+    box-shadow: 0 0 4px #a1b94a;
+}
+
+label input:focus {
+    background-color: #fff;
+    border: solid 1px #fff;
+    box-shadow: 0 0 4px #a1b94a;
+}
+
+.checkbox-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+}
+
+.checkbox-label span {
+    font-weight: 200;
+}
+
+.submit-btn {
+    background-color: #a1b94a;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 44px;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+.submit-btn2 {
+    background-color: #a1b94a;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 24px;
+    margin-right: 30px;
+}
+
+.submit-btn2:hover {
+    opacity: 0.8;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    font-size: 18px;
+}
+
+.copy a {
+    font-weight: 400;
+    color: #f3f3f4;
+}
+
+/* RESTAURANTS */
+
+.sec-tabrest {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.section-tabrest {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* FOOTER */
+
+.footer-cta {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    color: white;
+    text-align: center;
+    background-color: #27292c;
+}
+
+.footer-cta p {
+    padding-top: 24px;
+    font-size: 12px;
+    font-weight: 200;
+}

@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import com.grupoDos.JavaBackendProject.repository.ClienteRepository;
+
 @SpringBootApplication
 public class JavaBackendProjectApplication {
 
@@ -13,6 +15,9 @@ public class JavaBackendProjectApplication {
 		ApplicationContext context = SpringApplication.run(JavaBackendProjectApplication.class, args);
 		RestaurantRepository repository = context.getBean(RestaurantRepository.class);
 
+		//Get customers
+		ClienteRepository repository2 = context.getBean(ClienteRepository.class);
+		
 		//CREATE RESTAURANTS
 		/*
 		Restaurant restaurant1 = new Restaurant
@@ -44,5 +49,11 @@ public class JavaBackendProjectApplication {
 		repository.deleteAll();
 		System.out.println(repository.findAll().size());
 		*/
+		//RETRIEVE RESTAURANTS
+		System.out.println(repository.findAll().size());
+		
+		//RETRIEVE CUSTOMERS
+		System.out.println(repository2.findAll().size());
+		
 	}
 }
