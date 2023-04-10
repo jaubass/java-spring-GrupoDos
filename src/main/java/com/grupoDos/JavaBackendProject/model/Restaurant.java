@@ -2,6 +2,7 @@ package com.grupoDos.JavaBackendProject.model;
 
 import jakarta.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
 @Table(name = "restaurantes")
@@ -18,7 +19,11 @@ public class Restaurant {
     private String city;
     private int postalCode;
     private String web;
-    private String rutaImg;
+    private String image="no-image.png";
+
+
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<MenuItem> menuItems;
 
     public Restaurant() {}
 
@@ -31,7 +36,18 @@ public class Restaurant {
         this.city = city;
         this.postalCode = postalCode;
         this.web = web;
+    }
 
+    public Restaurant(Long id, String name, String email, int phone, String adress, String city, int postalCode, String web, String image) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.adress = adress;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.web = web;
+        this.image = image;
     }
 
     public Long getId() {
@@ -96,5 +112,13 @@ public class Restaurant {
 
     public void setWeb(String web) {
         this.web = web;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

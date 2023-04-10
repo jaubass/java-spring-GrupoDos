@@ -1,5 +1,9 @@
 /* TEXTO */
 
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 p {
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
@@ -354,15 +358,16 @@ label input:focus {
 
 /* RESTAURANTS */
 
-.sec-tabrest {
+.sec-tabrest h1{
+    font-size: 48px;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 50px;
     padding-bottom: 20px;
 }
 
 .section-tabrest {
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
 /* FOOTER */
