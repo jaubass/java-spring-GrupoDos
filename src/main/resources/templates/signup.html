@@ -4,60 +4,46 @@
 
 <body>
 
-<!-- MENU DE NAVEGACION -->
-<header th:fragment="header">
-  <nav th:insert="components/navbar.html :: nav"></nav>
-</header>
+	<!-- MENU DE NAVEGACION -->
+	<header th:fragment="header">
+		<nav th:insert="components/navbar.html :: nav"></nav>
+	</header>
 
-<!-- FORMULARIO SIGN UP -->
-<div class="section-singup">
-<div class="container-form">
-  <h1 id="titulo" class="encabezado">Sign Up</h1>
-  <div class="buttons">
-  </div>
-    <form action="" method="">
-      <div class="section-inputs">
-        <label for="name">
-          <span>Name</span>
-          <input id="name" type="text" name="name"/>
-        </label>
-        <label for="phone">
-          <span>Teléfono</span>
-          <input id="phone" type="number" name="phone"/>
-        </label>
-      </div>
-      <div class="section-inputs">
-        <label for="phone">
-          <span>Ciudad</span>
-          <input id="city" type="text" name="city"/>
-        </label>
-        <label for="postalCode">
-          <span class="">Código postal</span>
-          <input id="postalCode" type="text" name="postalCode"/>
-        </label>
-      </div>
-      <label for="adress">
-        <span class="">Direccón</span>
-        <input id="adress" type="text" name="adress"/>
-      </label>
-      <label for="email">
-        <span class="">Email</span>
-        <input id="email" type="text" name="email"/>
-      </label>
-      <label for="password">
-        <span class="">Password</span>
-        <input id="password" type="text" name="password" placeholder="6+ characters"/>
-      </label>
-      <label class="checkbox-label" for="checkbox">
-        <input id="checkbox" type="checkbox" name="checkbox"/>
-        <span class="">Acepto los terminos Legales y la política de privacidad.</span>
-      </label>
-      <button type="submit" class="submit-btn">Create acount</button>
-    </form>
-  </div>
-</div>
+	<!-- FORMULARIO SIGN UP -->
+	<div class="section-singup">
+		<div class="container-form">
+			<h1 id="titulo" class="encabezado">Sign Up</h1>
+			<div class="buttons"></div>
+			<form th:action="@{/signup}" th:object="${cliente}" method="post">
+				<div class="section-inputs">
+					</label> <label for="telf"> <span>Teléfono</span> <input
+						type="number" th:field="*{telf}" />
+					</label>
+				</div>
+				<div class="section-inputs">
+					<label for="city"> <span>Ciudad</span> <input type="text"
+						th:field="*{city}" />
+					</label> <label for="postalCode"> <span class="">Código
+							postal</span> <input type="text" th:field="*{postalCode}" />
+					</label>
+				</div>
+				<label for="address"> <span class="">Dirección</span> <input
+					type="text" th:field="*{address}" />
+				</label> <label for="email"> <span class="">Email</span> <input
+					type="text" th:field="*{email}" />
+				</label> <label for="password"> <span class="">Password</span> <input
+					type="text" th:field="*{password}" />
+				</label> <label class="checkbox-label" for="checkbox"> <input
+					id="checkbox" type="checkbox" name="checkbox" /> <span class="">Acepto
+						los terminos Legales y la política de privacidad.</span>
+				</label>
+				<button type="submit" class="submit-btn">Create account</button>
+				<input type="hidden" th:field="*{id}" />
+			</form>
+		</div>
+	</div>
 
-<!-- FOOTER -->
-<div th:insert="components/footer.html :: footer"></div>
+	<!-- FOOTER -->
+	<div th:insert="components/footer.html :: footer"></div>
 </body>
 </html>

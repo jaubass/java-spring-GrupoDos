@@ -9,7 +9,7 @@ public class TemplateController {
 
     @GetMapping("/template")
     public String index(Model model) {
-        return "template.html";
+        return "template";
     }
 }
 

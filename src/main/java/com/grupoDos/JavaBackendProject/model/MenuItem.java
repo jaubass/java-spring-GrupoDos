@@ -6,30 +6,33 @@ import jakarta.persistence.*;
 @Table(name ="menuitems")
 public class MenuItem {
 
-    // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long restaurantId;
+
     private String name;
+
     private String description;
+
     private Double price;
+
     private String category;
 
-    // Constructors
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
     public MenuItem() {
     }
 
-    public MenuItem(Long id, Long restaurantId, String name, String description, Double price, String category) {
+    public MenuItem(Long id, String name, String description, Double price, String category, Restaurant restaurant) {
         this.id = id;
-        this.restaurantId = restaurantId;
         this.name = name;
         this.description = description;
         this.price = price;
         this.category = category;
+        this.restaurant = restaurant;
     }
-
-    // Getters & Setters
 
     public Long getId() {
         return id;
@@ -37,14 +40,6 @@ public class MenuItem {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getRestaurantId() {
-        return restaurantId;
-    }
-
-    public void setRestaurantId(Long restaurantId) {
-        this.restaurantId = restaurantId;
     }
 
     public String getName() {
@@ -69,6 +64,14 @@ public class MenuItem {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public String getCategory() {
