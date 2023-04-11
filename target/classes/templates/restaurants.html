@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:insert="components/head.html :: head"></head>
+
+<body>
+<!-- MENU DE NAVEGACION -->
+<header><nav th:insert="components/navbar.html :: nav"></nav></header>
+
+<!-- BODY -->
+<!-- BOOTSTRAP TABLE -->
+<div class="container">
+  <div class="sec-tabrest"><h1>Restaurantes</h1>
+    <div class="section-tabrest">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">LOGO</th>
+          <th scope="col">ID</th>
+          <th scope="col">RESTAURANTE</th>
+          <th scope="col">MAIL</th>
+          <th scope="col">TELÉFONO</th>
+          <th scope="col">DIRECCIÓN</th>
+          <th scope="col">CIUDAD</th>
+          <th scope="col">CP</th>
+          <th scope="col">WEB</th>
+        </tr>
+        </thead>
+        <tr th:each="restaurant, index : ${restaurant}">
+          <td>
+            <img th:src="@{/__${'img/' + restaurant.image}__}" width="80px" height="80px">
+          </td>
+          <td th:text="${restaurant.id}"></td>
+          <td th:text="${restaurant.name}"></td>
+          <td th:text="${restaurant.email}"></td>
+          <td th:text="${restaurant.phone}"></td>
+          <td th:text="${restaurant.adress}"></td>
+          <td th:text="${restaurant.city}"></td>
+          <td th:text="${restaurant.postalCode}"></td>
+          <td th:text="${restaurant.web}"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="components/footer.html :: footer"></div>
+
+</body>
+</html>
