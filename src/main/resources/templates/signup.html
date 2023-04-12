@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th=http://www.thymeleaf.org>
-<head th:insert="components/head.html :: head"></head>
+<head th:insert="~{components/head.html :: head}"></head>
 
 <body>
 
 	<!-- MENU DE NAVEGACION -->
 	<header th:fragment="header">
-		<nav th:insert="components/navbar.html :: nav"></nav>
+		<nav th:insert="~{components/navbar.html :: nav}"></nav>
 	</header>
 
 	<!-- FORMULARIO SIGN UP -->
@@ -44,6 +44,6 @@
 	</div>
 
 	<!-- FOOTER -->
-	<div th:insert="components/footer.html :: footer"></div>
+	<div th:insert="~{components/footer.html :: footer}"></div>
 </body>
 </html>

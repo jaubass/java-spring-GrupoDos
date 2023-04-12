@@ -10,22 +10,25 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long orderId;
-    private Long menuItemId;
     private Integer quantity;
     private String comments;
     private Float price;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "menuitem_id")
+    private MenuItem menuItem;
+
     // Constructors
-
-
     public OrderItem() {
     }
 
-    public OrderItem(Long id, Long orderId, Long menuItemId, Integer quantity, String comments, Float price) {
+    public OrderItem(Long id, Order order, MenuItem menuItem, Integer quantity, String comments, Float price) {
         this.id = id;
-        this.orderId = orderId;
-        this.menuItemId = menuItemId;
+        this.order = order;
+        this.menuItem = menuItem;
         this.quantity = quantity;
         this.comments = comments;
         this.price = price;
@@ -41,20 +44,20 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public Long getMenuItemId() {
-        return menuItemId;
+    public MenuItem getMenuItem() {
+        return menuItem;
     }
 
-    public void setMenuItemId(Long menuItemId) {
-        this.menuItemId = menuItemId;
+    public void setMenuItem(MenuItem menuItem) {
+        this.menuItem = menuItem;
     }
 
     public Integer getQuantity() {

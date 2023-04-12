@@ -2,19 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <!-- HEAD -->
-<head th:insert="components/head.html :: head"></head>
+<head th:insert="~{components/head.html :: head}"></head>
 
 <body>
     <!-- MENU DE NAVEGACION -->
-    <header><nav th:insert="components/navbar.html :: nav"></nav></header>
+    <header><nav th:insert="~{components/navbar.html :: nav}"></nav></header>
 
     <!-- BODY -->
     <div class="container">
-        <h1>Pedidos</h1>
+        <div class="sec-tabrest"><h1>Pedidos</h1>
+            <div class="section-tabrest">
+                <div th:each="order, item : ${orders}">
+                    <div th:text="${order.id}"></div>
+                    <div th:text="${order.dateTime}"></div>
+                    <div th:text="${order.estado}"></div>
+                    <div th:text="${order.customer}"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- FOOTER -->
-    <div th:insert="components/footer.html :: footer"></div>
+    <div th:insert="~{components/footer.html :: footer}"></div>
 
 </body>
 </html>

@@ -1,68 +1,69 @@
 package com.grupoDos.JavaBackendProject.model;
 
-import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "order")
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name="orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long customerId;
     private LocalDateTime dateTime;
-    private String status;
-    private Float totalPrice;
-    
-    // Constructor
-    public Order(Long id, Long customerId, LocalDateTime dateTime, String status, Float totalPrice) {
-        this.id = id;
-        this.customerId = customerId;
-        this.dateTime = dateTime;
-        this.status = status;
-        this.totalPrice = totalPrice;
+    private String estado;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    // Constructors
+    public Order() {
     }
-    
-    // Getters and Setters
+
+    public Order(Long id, LocalDateTime dateTime, String estado, Customer customer) {
+        this.id = id;
+        this.dateTime = dateTime;
+        this.estado = estado;
+        this.customer = customer;
+    }
+
+    // Getters & Setters
+
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public Long getCustomerId() {
-        return customerId;
-    }
-    
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-    
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }
-    
+
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
-    
-    public String getStatus() {
-        return status;
+
+    public String getEstado() {
+        return estado;
     }
-    
-    public void setStatus(String status) {
-        this.status = status;
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
     
     public Float getTotalPrice() {
-        return totalPrice;
-    }
-    
-    public void setTotalPrice(Float totalPrice) {
-        this.totalPrice = totalPrice;
+        // TODO: getTotalPrice
+        return 0f;
     }
 }

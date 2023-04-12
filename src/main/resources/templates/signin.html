@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <!-- HEAD -->
-<head th:insert="components/head.html :: head"></head>
+<head th:insert="~{components/head.html :: head}"></head>
 
 <body>
 <!-- MENU DE NAVEGACION -->
-<header><nav th:insert="components/navbar.html :: nav"></nav></header>
+<header><nav th:insert="~{components/navbar.html :: nav}"></nav></header>
 
 <!-- FORMULARIO SIGN UP -->
 <div class="section-singup">
@@ -27,7 +27,7 @@
 </div>
 
 <!-- FOOTER -->
-<div th:insert="components/footer.html :: footer"></div>
+<div th:insert="~{components/footer.html :: footer}"></div>
 
 </body>
 </html>
