@@ -1,7 +1,7 @@
 package com.grupoDos.JavaBackendProject.service;
 
-import com.grupoDos.JavaBackendProject.model.Cliente;
-import com.grupoDos.JavaBackendProject.repository.ClienteRepository;
+import com.grupoDos.JavaBackendProject.model.Customer;
+import com.grupoDos.JavaBackendProject.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,17 +10,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ClienteService implements GenericService<Cliente>{
+public class CustomerService implements GenericService<Customer>{
 
     @Autowired
-    private ClienteRepository repository;
+    private CustomerRepository repository;
 
 
     @Override
     @Transactional //Realiza un roll back si no se puede ejecutar
-    public List<Cliente> findAll() throws Exception {
+    public List<Customer> findAll() throws Exception {
         try {
-            List<Cliente> entities = this.repository.findAll();
+            List<Customer> entities = this.repository.findAll();
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -29,9 +29,9 @@ public class ClienteService implements GenericService<Cliente>{
 
     @Override
     @Transactional
-    public Cliente findById(long id) throws Exception {
+    public Customer findById(long id) throws Exception {
         try {
-            Optional<Cliente> opt = this.repository.findById(id);
+            Optional<Customer> opt = this.repository.findById(id);
             return opt.get();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -40,10 +40,10 @@ public class ClienteService implements GenericService<Cliente>{
 
     @Override
     @Transactional
-    public Cliente saveOne(Cliente entity) throws Exception {
+    public Customer saveOne(Customer entity) throws Exception {
         try {
-            Cliente Cliente = this.repository.save(entity);
-            return Cliente;
+            Customer customer = this.repository.save(entity);
+            return customer;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
@@ -51,12 +51,12 @@ public class ClienteService implements GenericService<Cliente>{
 
     @Override
     @Transactional
-    public Cliente updateOne(Cliente entity, long id) throws Exception {
+    public Customer updateOne(Customer entity, long id) throws Exception {
         try {
-            Optional<Cliente> opt = this.repository.findById(id);
-            Cliente Cliente = opt.get();
-            Cliente= this.repository.save(entity);
-            return Cliente;
+            Optional<Customer> opt = this.repository.findById(id);
+            Customer customer = opt.get();
+            customer = this.repository.save(entity);
+            return customer;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
