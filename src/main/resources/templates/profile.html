@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:insert="components/head.html :: head"></head>
+
+<body>
+<!-- MENU DE NAVEGACION -->
+<header><nav th:insert="components/navbar.html :: nav"></nav></header>
+
+<!-- BODY -->
+<div class="container">
+    <div th:text="${customer.id}"></div>
+    <div th:text="${customer.name}"></div>
+    <div th:text="${customer.email}"></div>
+    <div th:text="${customer.password}"></div>
+    <div th:text="${customer.telf}"></div>
+    <div th:text="${customer.address}"></div>
+    <div th:text="${customer.city}"></div>
+    <div th:text="${customer.postalCode}"></div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="components/footer.html :: footer"></div>
+
+</body>
+</html>
