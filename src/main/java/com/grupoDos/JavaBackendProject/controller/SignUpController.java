@@ -1,19 +1,13 @@
 package com.grupoDos.JavaBackendProject.controller;
 
+import com.grupoDos.JavaBackendProject.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.grupoDos.JavaBackendProject.model.Cliente;
 import com.grupoDos.JavaBackendProject.service.GenericService;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @Controller
@@ -25,20 +19,20 @@ public class SignUpController {
    // }
 
     @Autowired   //busca un bean, componente que implementa la interfaz y lo inyecta al atributo
-  private GenericService<Cliente> ClienteService;
+  private GenericService<Customer> CustomerService;
 
     @RequestMapping(value="/signup")
   public String crear(Map<String, Object> model) {
-	  Cliente cliente = new Cliente();
-	  model.put("cliente", cliente);
+	  Customer customer = new Customer();
+	  model.put("customer", customer);
 	 // model.put("titulo", "Formulario de cliente");
 	  return "signup";
   }
  
    @RequestMapping(value="/signup", method=RequestMethod.POST)
-	  public String guardar(Cliente cliente) {
+	  public String guardar(Customer customer) {
 	  try {
-		ClienteService.saveOne(cliente);
+		CustomerService.saveOne(customer);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
