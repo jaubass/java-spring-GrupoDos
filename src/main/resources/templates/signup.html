@@ -16,26 +16,38 @@
 			<div class="buttons"></div>
 			<form th:action="@{/signup}" th:object="${customer}" method="post">
 				<div class="section-inputs">
-					</label> <label for="telf"> <span>Teléfono</span> <input
-						type="number" th:field="*{telf}" />
+					<label for="name">
+						<span>Nombre</span>
+						<input id="name" type="text" name="name" th:field="*{name}"/>
+					</label>
+					<label for="telf"> <span>Teléfono</span>
+						<input id="telf" type="number" th:field="*{telf}" />
 					</label>
 				</div>
 				<div class="section-inputs">
-					<label for="city"> <span>Ciudad</span> <input type="text"
-						th:field="*{city}" />
-					</label> <label for="postalCode"> <span class="">Código
-							postal</span> <input type="text" th:field="*{postalCode}" />
+					<label for="city"> <span>Ciudad</span>
+						<input type="text" th:field="*{city}" id="city"/>
+					</label>
+					<label for="postalCode">
+						<span class="">Código postal</span>
+						<input type="text" th:field="*{postalCode}" id="postalCode" />
 					</label>
 				</div>
-				<label for="address"> <span class="">Dirección</span> <input
-					type="text" th:field="*{address}" />
-				</label> <label for="email"> <span class="">Email</span> <input
-					type="text" th:field="*{email}" />
-				</label> <label for="password"> <span class="">Password</span> <input
-					type="text" th:field="*{password}" />
-				</label> <label class="checkbox-label" for="checkbox"> <input
-					id="checkbox" type="checkbox" name="checkbox" /> <span class="">Acepto
-						los terminos Legales y la política de privacidad.</span>
+				<label for="address">
+					<span class="">Dirección</span>
+					<input type="text" th:field="*{address}" id="address"/>
+				</label>
+				<label for="email">
+					<span class="">Email</span>
+					<input type="text" th:field="*{email}" id="email"/>
+				</label>
+				<label for="password">
+					<span class="">Password</span>
+					<input type="text" th:field="*{password}" id="password"/>
+				</label>
+				<label class="checkbox-label" for="checkbox">
+					<input id="checkbox" type="checkbox" name="checkbox" />
+					<span class="">Acepto los terminos Legales y la política de privacidad.</span>
 				</label>
 				<button type="submit" class="submit-btn">Create account</button>
 				<input type="hidden" th:field="*{id}" />
