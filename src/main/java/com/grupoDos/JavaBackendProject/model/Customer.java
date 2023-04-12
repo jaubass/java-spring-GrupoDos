@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "clientes")
-public class Cliente implements Serializable {
+@Table(name = "customers")
+public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -25,10 +25,10 @@ public class Cliente implements Serializable {
 	@Column(name = "postal_code")
 	private String postalCode;
 
-	public Cliente() {
+	public Customer() {
 	}
 
-	public Cliente(Long id, String name, String email, String password, String telf, String address, String city, String postalCode) {
+	public Customer(Long id, String name, String email, String password, String telf, String address, String city, String postalCode) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
