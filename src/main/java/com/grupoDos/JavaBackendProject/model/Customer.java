@@ -19,11 +19,25 @@ public class Cliente implements Serializable {
 	private String name;
 	private String email;
 	private String password;
-	private Integer telf;
+	private String telf;
 	private String address;
 	private String city;
 	@Column(name = "postal_code")
-	private Integer postalCode;
+	private String postalCode;
+
+	public Cliente() {
+	}
+
+	public Cliente(Long id, String name, String email, String password, String telf, String address, String city, String postalCode) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.telf = telf;
+		this.address = address;
+		this.city = city;
+		this.postalCode = postalCode;
+	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -59,11 +73,11 @@ public class Cliente implements Serializable {
 		this.password = password;
 	}
 
-	public Integer getTelf() {
+	public String getTelf() {
 		return telf;
 	}
 
-	public void setTelf(Integer telf) {
+	public void setTelf(String telf) {
 		this.telf = telf;
 	}
 
@@ -83,11 +97,11 @@ public class Cliente implements Serializable {
 		this.city = city;
 	}
 
-	public Integer getPostalCode() {
+	public String getPostalCode() {
 		return postalCode;
 	}
 
-	public void setPostalCode(Integer postalCode) {
+	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
 
