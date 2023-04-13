@@ -1,10 +1,7 @@
 package com.grupoDos.JavaBackendProject;
 
-import com.grupoDos.JavaBackendProject.model.Customer;
-import com.grupoDos.JavaBackendProject.model.MenuItem;
-import com.grupoDos.JavaBackendProject.model.Restaurant;
-import com.grupoDos.JavaBackendProject.repository.MenuItemRepository;
-import com.grupoDos.JavaBackendProject.repository.RestaurantRepository;
+import com.grupoDos.JavaBackendProject.model.*;
+import com.grupoDos.JavaBackendProject.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +15,7 @@ public class JavaBackendProjectApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(JavaBackendProjectApplication.class, args);
+
 		RestaurantRepository repoRestaurant = context.getBean(RestaurantRepository.class);
 		CustomerRepository repoCustomer = context.getBean(CustomerRepository.class);
 		MenuItemRepository repoMenu = context.getBean(MenuItemRepository.class);
@@ -104,5 +102,6 @@ public class JavaBackendProjectApplication {
 			repoMenu.save(affogato);
 		}
 
+		System.out.println("\nI am ready to serve!");
 	}
 }

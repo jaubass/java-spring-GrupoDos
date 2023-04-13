@@ -10,14 +10,18 @@
 
 <!-- BODY -->
 <div class="container">
-    <div th:text="${customer.id}"></div>
-    <div th:text="${customer.name}"></div>
-    <div th:text="${customer.email}"></div>
-    <div th:text="${customer.password}"></div>
-    <div th:text="${customer.telf}"></div>
-    <div th:text="${customer.address}"></div>
-    <div th:text="${customer.city}"></div>
-    <div th:text="${customer.postalCode}"></div>
+    <div class="sec-tabrest"><h1>Perfil</h1>
+        <div class="section-tabrest">
+            <div th:text="${customer.id}"></div>
+            <div th:text="${customer.name}"></div>
+            <div th:text="${customer.email}"></div>
+            <div th:text="${customer.password}"></div>
+            <div th:text="${customer.telf}"></div>
+            <div th:text="${customer.address}"></div>
+            <div th:text="${customer.city}"></div>
+            <div th:text="${customer.postalCode}"></div>
+        </div>
+    </div>
 </div>
 
 <!-- FOOTER -->
