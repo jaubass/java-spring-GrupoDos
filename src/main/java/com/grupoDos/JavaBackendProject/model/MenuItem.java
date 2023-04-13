@@ -3,6 +3,7 @@ package com.grupoDos.JavaBackendProject.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "menuitem")
 public class MenuItem {
 
     @Id

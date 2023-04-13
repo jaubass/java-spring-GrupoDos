@@ -57,7 +57,7 @@ public class OrderService implements GenericService<Order> {
             order.setId(entity.getId());
             order.setCustomerId(entity.getCustomerId());
             order.setDateTime(entity.getDateTime());
-            order.setStatus(entity.getStatus());
+            order.setEstado(entity.getEstado());
             order.setTotalPrice(entity.getTotalPrice());
             order = this.repository.save(order);
             return order;

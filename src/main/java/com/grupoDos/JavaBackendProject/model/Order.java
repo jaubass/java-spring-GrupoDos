@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "order")
-
 public class Order {
 
     @Id
@@ -13,15 +12,15 @@ public class Order {
     private Long id;
     private Long customerId;
     private LocalDateTime dateTime;
-    private String status;
+    private String estado;
     private Float totalPrice;
     
     // Constructor
-    public Order(Long id, Long customerId, LocalDateTime dateTime, String status, Float totalPrice) {
+    public Order(Long id, Long customerId, LocalDateTime dateTime, String estado, Float totalPrice) {
         this.id = id;
         this.customerId = customerId;
         this.dateTime = dateTime;
-        this.status = status;
+        this.estado = estado;
         this.totalPrice = totalPrice;
     }
     
@@ -50,12 +49,12 @@ public class Order {
         this.dateTime = dateTime;
     }
     
-    public String getStatus() {
-        return status;
+    public String getEstado() {
+        return estado;
     }
     
-    public void setStatus(String status) {
-        this.status = status;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     public Float getTotalPrice() {

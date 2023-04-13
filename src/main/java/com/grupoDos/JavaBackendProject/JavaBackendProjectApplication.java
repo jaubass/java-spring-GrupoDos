@@ -101,5 +101,7 @@ public class JavaBackendProjectApplication {
 			repoMenu.save(gelato);
 			repoMenu.save(affogato);
 		}
+
+		System.out.println("\nI am ready to serve!");
 	}
 }
