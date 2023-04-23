@@ -1,13 +1,9 @@
 package com.grupoDos.JavaBackendProject.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "customers")
@@ -38,6 +34,16 @@ public class Customer implements Serializable {
 		this.city = city;
 		this.postalCode = postalCode;
 	}
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "USER_ROLES",
+			joinColumns = {
+			@JoinColumn(name = "customer_id")
+			},
+			inverseJoinColumns = {
+			@JoinColumn(name = "role_id")
+			})
+	private Set<Role> roles;
 
 	private static final long serialVersionUID = 1L;
 
