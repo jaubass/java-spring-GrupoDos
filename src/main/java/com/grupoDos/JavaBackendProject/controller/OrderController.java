@@ -18,7 +18,7 @@ public class OrderController {
     @Autowired private OrderService svcOrder;
     @Autowired private OrderItemService svcMenu;
 
-    @GetMapping("/orders")
+    @GetMapping("/user/orders")
     public String index(Model model) {
         try {
             List<Order> orders = this.svcOrder.findAll();
@@ -29,7 +29,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("/cart")
+    @GetMapping("/user/cart")
     public String cart(Model model) {
         try {
             List<OrderItem> menu = this.svcMenu.findAll();

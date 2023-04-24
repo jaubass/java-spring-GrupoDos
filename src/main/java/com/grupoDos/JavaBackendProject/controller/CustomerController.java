@@ -29,7 +29,7 @@ public class CustomerController {
 
     
     
-    @GetMapping("/profile")
+    @GetMapping("/user")
     public String index(Model model) throws Exception {
         try {
             Customer customer = this.svcCustomer.findById(1L);
