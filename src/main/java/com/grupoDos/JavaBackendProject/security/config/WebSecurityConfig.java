@@ -31,23 +31,24 @@ public class WebSecurityConfig {
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
+
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
         jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
 
+        http.csrf().disable()
+            .authorizeHttpRequests()
+            .requestMatchers("/css/**").permitAll()
+            .requestMatchers("/img/**").permitAll()
+            .requestMatchers("/").permitAll()
+            .requestMatchers("/menu").permitAll()
+            .requestMatchers("/restaurants").permitAll()
+            .anyRequest().authenticated()
+            .and().sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().addFilter(jwtAuthenticationFilter)
+            .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class);
 
-
-            http.csrf().disable()
-                .authorizeHttpRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .addFilter(jwtAuthenticationFilter)
-                .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
