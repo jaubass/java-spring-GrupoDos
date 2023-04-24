@@ -1,7 +1,5 @@
 package com.grupoDos.JavaBackendProject.service;
 
-import com.grupoDos.JavaBackendProject.model.Restaurant;
-
 import java.util.List;
 
 public interface GenericService<E> {
