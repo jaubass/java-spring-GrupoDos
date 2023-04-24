@@ -1,5 +1,6 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.Order;
 import com.grupoDos.JavaBackendProject.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -35,6 +36,11 @@ public class OrderService implements GenericService<Order> {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    @Override
+    public Customer findOneByEmail(String email) throws Exception {
+        return null;
     }
 
     @Override

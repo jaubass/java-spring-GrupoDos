@@ -1,5 +1,6 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.MenuItem;
 import com.grupoDos.JavaBackendProject.model.OrderItem;
 import com.grupoDos.JavaBackendProject.model.Restaurant;
@@ -36,6 +37,11 @@ public class MenuItemService implements GenericService<MenuItem> {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    @Override
+    public Customer findOneByEmail(String email) throws Exception {
+        return null;
     }
 
     @Override

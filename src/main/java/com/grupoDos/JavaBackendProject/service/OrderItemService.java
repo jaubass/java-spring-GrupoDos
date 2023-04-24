@@ -1,6 +1,7 @@
 package com.grupoDos.JavaBackendProject.service;
 
 import ch.qos.logback.core.encoder.EchoEncoder;
+import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.OrderItem;
 import com.grupoDos.JavaBackendProject.model.Restaurant;
 import com.grupoDos.JavaBackendProject.repository.OrderItemRepository;
@@ -37,6 +38,11 @@ public class OrderItemService implements GenericService<OrderItem> {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    @Override
+    public Customer findOneByEmail(String email) throws Exception {
+        return null;
     }
 
     @Override
