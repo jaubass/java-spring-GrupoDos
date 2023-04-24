@@ -38,11 +38,8 @@ public class WebSecurityConfig {
 
         http.csrf().disable()
             .authorizeHttpRequests()
-            .requestMatchers("/css/**").permitAll()
-            .requestMatchers("/img/**").permitAll()
-            .requestMatchers("/").permitAll()
-            .requestMatchers("/menu").permitAll()
-            .requestMatchers("/restaurants").permitAll()
+            .requestMatchers("/css/**", "/img/**", "/", "/menu", "/restaurants").permitAll()
+            .requestMatchers("/signup", "/signin").permitAll()
             .anyRequest().authenticated()
             .and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
