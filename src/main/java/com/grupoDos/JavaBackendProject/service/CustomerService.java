@@ -76,8 +76,9 @@ public class CustomerService implements GenericService<Customer>{
     @Override
     @Transactional
     //TO DO
-    public boolean deleteById(long id) throws Exception {
-        return false;
+    public boolean deleteById(long id) throws Exception {        
+    	this.repository.deleteById(id);
+    	return false;
     }
 
 
