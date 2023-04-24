@@ -77,11 +77,7 @@ public class CustomerController {
         boolean deletedOk = this.svcCustomer.deleteById(id);     
         model.addAttribute("customer", customer);
         return "customer_added";
-<<<<<<< HEAD
 	}
-  
-=======
-    }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/hello-admin")
@@ -101,5 +97,5 @@ public class CustomerController {
         return "Any User Can Read This";
     }
 
->>>>>>> develop
+
 }
