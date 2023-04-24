@@ -2,78 +2,41 @@ package com.grupoDos.JavaBackendProject.controller;
 
 
 import com.grupoDos.JavaBackendProject.model.Order;
+import com.grupoDos.JavaBackendProject.model.OrderItem;
+import com.grupoDos.JavaBackendProject.service.OrderItemService;
 import com.grupoDos.JavaBackendProject.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/orders")
+@Controller
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+    @Autowired private OrderService svcOrder;
+    @Autowired private OrderItemService svcMenu;
 
-    @GetMapping
-    public ResponseEntity<List<Order>> findAll() {
+    @GetMapping("/orders")
+    public String index(Model model) {
         try {
-            List<Order> orders = orderService.findAll();
-            return ResponseEntity.ok().body(orders);
+            List<Order> orders = this.svcOrder.findAll();
+            model.addAttribute("orders", orders);
+            return "orders";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            throw new RuntimeException(e);
         }
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id) {
+    @GetMapping("/cart")
+    public String cart(Model model) {
         try {
-            Order order = orderService.findById(id);
-            if (order == null) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok().body(order);
+            List<OrderItem> menu = this.svcMenu.findAll();
+            model.addAttribute("menu", menu);
+            return "cart";
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            throw new RuntimeException(e);
         }
     }
-
-    @PostMapping
-    public ResponseEntity<Order> saveOne(@RequestBody Order order) {
-        try {
-            Order savedOrder = orderService.saveOne(order);
-            return ResponseEntity.status(HttpStatus.CREATED).body(savedOrder);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Order> updateOne(@RequestBody Order order, @PathVariable Long id) {
-        try {
-            Order updatedOrder = orderService.updateOne(order, id);
-            if (updatedOrder == null) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok().body(updatedOrder);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
-        try {
-            boolean deleted = orderService.deleteById(id);
-            if (deleted) {
-                return ResponseEntity.noContent().build();
-            }
-            return ResponseEntity.notFound().build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
 }
