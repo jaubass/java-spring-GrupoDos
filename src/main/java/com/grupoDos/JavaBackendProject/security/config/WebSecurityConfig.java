@@ -35,24 +35,19 @@ public class WebSecurityConfig {
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
         jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
 
-
-
-            http.csrf().disable()
-                .authorizeHttpRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        http
+            .authorizeHttpRequests((authz) -> authz
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("api/admin/**").hasRole("ADMIN")
+                .requestMatchers("api/user/**").hasRole("USER")
+                .anyRequest().permitAll()
                 .and()
                 .addFilter(jwtAuthenticationFilter)
-                .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class));
         return http.build();
     }
 
 
-   /*
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
@@ -62,7 +57,6 @@ public class WebSecurityConfig {
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
-    */
 
     @Bean
     AuthenticationManager authenticationManager(HttpSecurity http, PasswordEncoder passwordEncoder) throws Exception {
