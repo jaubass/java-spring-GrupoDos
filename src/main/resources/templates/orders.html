@@ -10,14 +10,27 @@
 
     <!-- BODY -->
     <div class="container">
-        <div class="sec-tabrest"><h1>Pedidos</h1>
-            <div class="section-tabrest">
-                <div th:each="order, item : ${orders}">
-                    <div th:text="${order.id}"></div>
-                    <div th:text="${order.dateTime}"></div>
-                    <div th:text="${order.estado}"></div>
-                    <div th:text="${order.customer}"></div>
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Pedidos</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Cliente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="order : ${orders}">
+                            <td th:text="${order.id}"></td>
+                            <td th:text="${order.date}"></td>
+                            <td th:text="${order.status}"></td>
+                            <td th:text="${order.customer.name}"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
