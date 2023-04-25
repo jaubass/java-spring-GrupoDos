@@ -1,7 +1,5 @@
 package com.grupoDos.JavaBackendProject.security.config;
 
-import com.grupoDos.JavaBackendProject.security.jwt.JWTAuthenticationFilter;
-import com.grupoDos.JavaBackendProject.security.jwt.JWTAuthorizationFiler;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,14 +25,9 @@ import static org.apache.commons.lang3.BooleanUtils.and;
 public class WebSecurityConfig {
 
     private final UserDetailsService userDetailsService;
-    private final JWTAuthorizationFiler jwtAuthorizationFiler;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
-
-        JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
-        jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
 
         http.csrf().disable()
             .authorizeHttpRequests()
@@ -46,8 +39,6 @@ public class WebSecurityConfig {
             //.defaultSuccessUrl("/").permitAll()
             .and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and().addFilter(jwtAuthenticationFilter)
-            .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
