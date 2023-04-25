@@ -115,5 +115,19 @@ public class Customer implements Serializable {
 		return serialVersionUID;
 	}
 
+	@Override
+	public String toString() {
+		return "Customer{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", telf='" + telf + '\'' +
+				", address='" + address + '\'' +
+				", city='" + city + '\'' +
+				", postalCode='" + postalCode + '\'' +
+				", roles=" + roles +
+				'}';
+	}
 }
 

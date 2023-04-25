@@ -37,8 +37,8 @@ public class WebSecurityConfig {
             .and().formLogin().loginPage("/signin")
             //.loginProcessingUrl("/authenticateUser")
             //.defaultSuccessUrl("/").permitAll()
-            .and().sessionManagement()
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().sessionManagement();
+            //.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         return http.build();
     }
