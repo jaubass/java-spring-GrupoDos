@@ -40,6 +40,17 @@ public class CustomerService implements GenericService<Customer>{
 
     @Override
     @Transactional
+    public Customer findOneByEmail(String email) throws Exception {
+        try {
+            Optional<Customer> opt = this.repository.findOneByEmail(email);
+            return opt.get();
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional
     public Customer saveOne(Customer entity) throws Exception {
         try {
             Customer customer = this.repository.save(entity);
@@ -65,8 +76,9 @@ public class CustomerService implements GenericService<Customer>{
     @Override
     @Transactional
     //TO DO
-    public boolean deleteById(long id) throws Exception {
-        return false;
+    public boolean deleteById(long id) throws Exception {        
+    	this.repository.deleteById(id);
+    	return false;
     }
 
 

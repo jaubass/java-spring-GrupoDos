@@ -1,5 +1,6 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.Order;
 import com.grupoDos.JavaBackendProject.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -15,11 +16,13 @@ public class OrderService implements GenericService<Order> {
     @Autowired
     private OrderRepository repository;
 
+
     @Override
-    @Transactional
+    @Transactional //Realiza un roll back si no se puede ejecutar
     public List<Order> findAll() throws Exception {
         try {
             List<Order> entities = this.repository.findAll();
+            System.out.println(entities);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -35,6 +38,11 @@ public class OrderService implements GenericService<Order> {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    @Override
+    public Customer findOneByEmail(String email) throws Exception {
+        return null;
     }
 
     @Override
@@ -54,12 +62,7 @@ public class OrderService implements GenericService<Order> {
         try {
             Optional<Order> opt = this.repository.findById(id);
             Order order = opt.get();
-            order.setId(entity.getId());
-            order.setCustomerId(entity.getCustomerId());
-            order.setDateTime(entity.getDateTime());
-            order.setEstado(entity.getEstado());
-            order.setTotalPrice(entity.getTotalPrice());
-            order = this.repository.save(order);
+            order= this.repository.save(entity);
             return order;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
@@ -68,12 +71,11 @@ public class OrderService implements GenericService<Order> {
 
     @Override
     @Transactional
+    //TO DO
     public boolean deleteById(long id) throws Exception {
-        try {
-            this.repository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
+        return false;
     }
+
+
+
 }

@@ -10,13 +10,15 @@
 
     <!-- BODY -->
     <div class="container">
-        <div class="sec-tabrest"><h1>Pedidos</h1>
+        <div class="sec-tabrest"><h1>Bandeja</h1>
             <div class="section-tabrest">
-                <div th:each="order, item : ${orders}">
-                    <div th:text="${order.id}"></div>
-                    <div th:text="${order.dateTime}"></div>
-                    <div th:text="${order.estado}"></div>
-                    <div th:text="${order.customer}"></div>
+                <div th:each="item, index : ${menu}">
+                    <div th:text="${item.id}"></div>
+                    <div th:text="${item.quantity}"></div>
+                    <div th:text="${item.comments}"></div>
+                    <div th:text="${item.price}"></div>
+                    <div th:text="${item.order}"></div>
+                    <div th:text="${item.menuItem}"></div>
                 </div>
             </div>
         </div>

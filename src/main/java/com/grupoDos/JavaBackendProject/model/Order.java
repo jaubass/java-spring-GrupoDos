@@ -1,67 +1,69 @@
 package com.grupoDos.JavaBackendProject.model;
 
-import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "order")
+@Table(name="orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long customerId;
     private LocalDateTime dateTime;
     private String estado;
-    private Float totalPrice;
-    
-    // Constructor
-    public Order(Long id, Long customerId, LocalDateTime dateTime, String estado, Float totalPrice) {
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    // Constructors
+    public Order() {
+    }
+
+    public Order(Long id, LocalDateTime dateTime, String estado, Customer customer) {
         this.id = id;
-        this.customerId = customerId;
         this.dateTime = dateTime;
         this.estado = estado;
-        this.totalPrice = totalPrice;
+        this.customer = customer;
     }
-    
-    // Getters and Setters
+
+    // Getters & Setters
+
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public Long getCustomerId() {
-        return customerId;
-    }
-    
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-    
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }
-    
+
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
-    
+
     public String getEstado() {
         return estado;
     }
-    
+
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    public Float getTotalPrice() {
-        return totalPrice;
+
+    public Customer getCustomer() {
+        return customer;
     }
-    
-    public void setTotalPrice(Float totalPrice) {
-        this.totalPrice = totalPrice;
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Float getTotalPrice() {
+        // TODO: getTotalPrice
+        return 0f;
     }
 }

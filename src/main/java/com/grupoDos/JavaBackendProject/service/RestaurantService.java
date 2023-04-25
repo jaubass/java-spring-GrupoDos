@@ -1,5 +1,6 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.model.Restaurant;
 import com.grupoDos.JavaBackendProject.repository.RestaurantRepository;
 import jakarta.transaction.Transactional;
@@ -36,6 +37,11 @@ public class RestaurantService implements GenericService<Restaurant>{
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+
+    @Override
+    public Customer findOneByEmail(String email) throws Exception {
+        return null;
     }
 
     @Override
