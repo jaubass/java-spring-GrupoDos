@@ -1,7 +1,8 @@
-package com.grupoDos.JavaBackendProject.security;
+package com.grupoDos.JavaBackendProject.security.service;
 
 import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.repository.CustomerRepository;
+import com.grupoDos.JavaBackendProject.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,8 @@
-package com.grupoDos.JavaBackendProject.security;
+package com.grupoDos.JavaBackendProject.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.grupoDos.JavaBackendProject.security.AuthCredentials;
+import com.grupoDos.JavaBackendProject.security.UserDetailsImpl;
 import com.grupoDos.JavaBackendProject.utils.TokenUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

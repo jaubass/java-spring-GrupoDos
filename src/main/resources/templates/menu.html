@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- HEAD -->
+<head th:insert="~{components/head.html :: head}"></head>
+
+<body>
+<!-- MENU DE NAVEGACION -->
+<header><nav th:insert="~{components/navbar.html :: nav}"></nav></header>
+
+<!-- BODY -->
+<!-- BOOTSTRAP TABLE -->
+<div class="container">
+    <div><h1>Menú</h1></div>
+    <div class="d-flex flex-wrap" >
+        <div th:each="menuItem, index : ${menu}">
+            <div class="card m-3" style="width:400px">
+                <div class="card-header d-flex justify-content-between">
+                    <span class="h4" th:text="${menuItem.name}"></span>
+                </div>
+                <div class="card-body">
+                    <div class="badge mb-3" th:text="${menuItem.category}" style="background:darkgrey;"></div>
+                    <div th:text="${menuItem.description}"></div>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                  <span>
+                      <span th:text="${menuItem.price}"></span>
+                      <span> €</span>
+                  </span>
+                    <span class="btn btn-primary">Añadir</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div th:insert="~{components/footer.html :: footer}"></div>
+
+</body>
+</html>

@@ -19,15 +19,15 @@
 		</p>
 		<table class="table table-striped">
 			<thead>
-				<tr>				
+				<tr>
 					<th>id</th>
 					<th>Nombre</th>
-					<th>Teléfono</th>
+					<th>TelÃ©fono</th>
 					<th>Ciudad</th>
-					<th>Código postal</th>
-					<th>Dirección</th>
+					<th>CÃ³digo postal</th>
+					<th>DirecciÃ³n</th>
 					<th>Email</th>
-					<th>Contraseña</th>
+					<th>ContraseÃ±a</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +44,7 @@
 						th:href="@{/signup/} + ${cliente.id}" th:text="'editar'"></a></td>
 					<td><a class="btn btn-danger btn-xs"
 						th:href="@{/eliminar/} + ${cliente.id}" th:text="'eliminar'"
-						onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
+						onclick="return confirm('Estï¿½s seguro que quieres eliminar?');"></a></td>
 				</tr>
 			</tbody>
 		</table>

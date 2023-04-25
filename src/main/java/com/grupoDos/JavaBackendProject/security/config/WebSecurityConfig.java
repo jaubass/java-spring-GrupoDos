@@ -1,5 +1,8 @@
-package com.grupoDos.JavaBackendProject.config;
+package com.grupoDos.JavaBackendProject.security.config;
 
+import com.grupoDos.JavaBackendProject.security.jwt.JWTAuthenticationFilter;
+import com.grupoDos.JavaBackendProject.security.jwt.JWTAuthorizationFiler;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,24 +17,43 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import static org.apache.commons.lang3.BooleanUtils.and;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class WebSecurityConfig {
 
+    private final UserDetailsService userDetailsService;
+    private final JWTAuthorizationFiler jwtAuthorizationFiler;
+
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
+
+        JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
+        jwtAuthenticationFilter.setAuthenticationManager(authManager);
+        jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
+
         http.csrf().disable()
-                .authorizeHttpRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            .authorizeHttpRequests()
+            .requestMatchers("/css/**", "/img/**", "/", "/menu", "/restaurants").permitAll()
+            .requestMatchers("/signup", "/signin").permitAll()
+            .anyRequest().authenticated()
+            .and().formLogin().loginPage("/signin")
+            //.loginProcessingUrl("/authenticateUser")
+            //.defaultSuccessUrl("/").permitAll()
+            .and().sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and().addFilter(jwtAuthenticationFilter)
+            .addFilterBefore(jwtAuthorizationFiler, UsernamePasswordAuthenticationFilter.class);
+
         return http.build();
     }
 
+
+   /*
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
@@ -41,11 +63,12 @@ public class WebSecurityConfig {
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
+    */
 
     @Bean
     AuthenticationManager authenticationManager(HttpSecurity http, PasswordEncoder passwordEncoder) throws Exception {
         return http.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userDetailsService())
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder())
                 .and()
                 .build();

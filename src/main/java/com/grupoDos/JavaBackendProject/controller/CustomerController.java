@@ -29,7 +29,7 @@ public class CustomerController {
 
     
     
-    @GetMapping("/profile")
+    @GetMapping("/user")
     public String index(Model model) throws Exception {
         try {
             Customer customer = this.svcCustomer.findById(1L);
@@ -78,7 +78,10 @@ public class CustomerController {
         model.addAttribute("customer", customer);
         return "customer_added";
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> acd915a9ddf1ca58f8f86df2989a556e613c16a8
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/hello-admin")
@@ -98,4 +101,8 @@ public class CustomerController {
         return "Any User Can Read This";
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> acd915a9ddf1ca58f8f86df2989a556e613c16a8
 }
