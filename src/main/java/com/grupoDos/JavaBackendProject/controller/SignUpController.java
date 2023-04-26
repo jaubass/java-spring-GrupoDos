@@ -1,9 +1,12 @@
 package com.grupoDos.JavaBackendProject.controller;
 
 import com.grupoDos.JavaBackendProject.model.Customer;
+import com.grupoDos.JavaBackendProject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,11 +17,21 @@ import java.util.Map;
 @Controller
 public class SignUpController {
 
-   @GetMapping("/signup")
-   String signup() {
-       System.out.println("¿Hay un problema aquí? ====================================");
+    @Autowired
+    private CustomerService svcCustomer;
+
+    @GetMapping("/signup")
+    public String signup() {
        return "signup";
    }
+
+    @PostMapping("/signup")
+    public String signupPost(Customer customerData, Model model) throws Exception {
+        Customer customer = svcCustomer.saveOne(customerData);
+        //model.addAttribute("customer", customer);
+        System.out.println(customer);
+        return "redirect:/";
+    }
 /*
     @Autowired   //busca un bean, componente que implementa la interfaz y lo inyecta al atributo
   private GenericService<Customer> CustomerService;
