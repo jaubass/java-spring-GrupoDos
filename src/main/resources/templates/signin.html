@@ -12,6 +12,9 @@
 <div class="section-singup">
     <div class="container-form">
         <h1 id="titulo" class="encabezado">Sign In</h1>
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
         <form action="/signin" method="POST">
                 <label for="username">
                     <span>Usuario</span>

@@ -16,6 +16,7 @@ public class SignUpController {
 
    @GetMapping("/signup")
    String signup() {
+       System.out.println("¿Hay un problema aquí? ====================================");
        return "signup";
    }
 /*

@@ -15,7 +15,7 @@ public class SignInController {
     @PostMapping("/signin")
     String login() {
         // TODO: get data from body and check the login from Database
-        return "redirect:/profile";
+        return "redirect:/user";
     }
 
 }

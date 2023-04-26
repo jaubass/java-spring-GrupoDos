@@ -4,6 +4,8 @@ import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,7 @@ public class CustomerController {
     @Autowired
     private CustomerService svcCustomer;
 
-    @RequestMapping(value= {"/customers_list"}, method=RequestMethod.GET)	
+    @RequestMapping(value= {"/customers_list"}, method=RequestMethod.GET)
     public String listar(Model model) {
   	  model.addAttribute("titulo", "Listado de clientes");
   	  try {
@@ -27,12 +29,14 @@ public class CustomerController {
   	  return "customers_list";
     }
 
-    
-    
+
+
     @GetMapping("/user")
     public String index(Model model) throws Exception {
         try {
             Customer customer = this.svcCustomer.findById(1L);
+            Authentication auth  = SecurityContextHolder.getContext().getAuthentication();
+            model.addAttribute("auth", auth);
             model.addAttribute("customer", customer);
             return "profile";
 
@@ -50,6 +54,7 @@ public class CustomerController {
         return "customer_added";
     }
 
+/*
     @GetMapping("/signup/{id}")
      public String getCustomer(@PathVariable Long id, Model model)
             throws Exception {
@@ -69,12 +74,12 @@ public class CustomerController {
         model.addAttribute("customer", newCustomer);
         return "customer_added";
     }
-
+*/
 	@RequestMapping(value="/eliminar/{id}")
     public String deleteCustomer(@PathVariable Long id, Model model)
         throws Exception {
         Customer customer = this.svcCustomer.findById(id);
-        boolean deletedOk = this.svcCustomer.deleteById(id);     
+        boolean deletedOk = this.svcCustomer.deleteById(id);
         model.addAttribute("customer", customer);
         return "customer_added";
 	}

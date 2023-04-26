@@ -34,16 +34,17 @@ public class WebSecurityConfig {
 
         JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
         jwtAuthenticationFilter.setAuthenticationManager(authManager);
-        jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
+        //jwtAuthenticationFilter.setFilterProcessesUrl("/signup");
 
         http.csrf().disable()
             .authorizeHttpRequests()
             .requestMatchers("/css/**", "/img/**", "/", "/menu", "/restaurants").permitAll()
-            .requestMatchers("/signup", "/signin").permitAll()
-            .anyRequest().authenticated()
+            .requestMatchers("/error", "/signup", "/signin").permitAll()
+            //.anyRequest().authenticated()
+            .anyRequest().permitAll()
             .and().formLogin().loginPage("/signin")
-            //.loginProcessingUrl("/authenticateUser")
-            //.defaultSuccessUrl("/").permitAll()
+            .loginProcessingUrl("/authenticateUser")
+            .defaultSuccessUrl("/user").permitAll()
             .and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().addFilter(jwtAuthenticationFilter)

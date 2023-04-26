@@ -12,6 +12,10 @@
 <div class="container">
     <div class="sec-tabrest"><h1>Perfil</h1>
         <div class="section-tabrest">
+            <div>Prova de les dades que venen de l'autenticacio:</div>
+            <div th:text="${auth.getName()}"></div>
+        </div>
+        <div class="section-tabrest">
             <div th:text="${customer.id}"></div>
             <div th:text="${customer.name}"></div>
             <div th:text="${customer.email}"></div>

@@ -55,7 +55,7 @@ public class JavaBackendProjectApplication {
 					null,
 					"Cliente Ejemplo",
 					"cliente@ejemplo.com",
-					"1234",
+					"$2a$12$NwQxWcefdbYvrKLrrPNzfudGfRgMdOjRtfssOZMBwTeJO9kS0hfXO",
 					"111222333",
 					"Calle Tal 3,5",
 					"Ciudad",
