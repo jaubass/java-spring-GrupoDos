@@ -23,6 +23,8 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/css/**", "/img/**", "/", "/menu", "/restaurants").permitAll()
+                .requestMatchers("/error", "/signup", "/signin").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()
