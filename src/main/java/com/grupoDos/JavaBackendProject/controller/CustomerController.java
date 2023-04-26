@@ -78,10 +78,6 @@ public class CustomerController {
         model.addAttribute("customer", customer);
         return "customer_added";
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> acd915a9ddf1ca58f8f86df2989a556e613c16a8
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/hello-admin")
@@ -100,9 +96,4 @@ public class CustomerController {
     public String userPing(){
         return "Any User Can Read This";
     }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> acd915a9ddf1ca58f8f86df2989a556e613c16a8
 }
