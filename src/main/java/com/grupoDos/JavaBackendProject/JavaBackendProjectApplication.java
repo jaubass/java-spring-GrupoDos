@@ -45,6 +45,9 @@ public class JavaBackendProjectApplication {
 			repoRestaurant.save(restaurant6);
 		}
 
+		// Create user, if not exists
+
+
 		// Create customer, if not exists
 		Optional<Customer> opt = repoCustomer.findById(1L);
 		if (opt.isEmpty()) {

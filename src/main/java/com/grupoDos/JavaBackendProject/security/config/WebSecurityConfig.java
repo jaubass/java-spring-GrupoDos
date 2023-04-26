@@ -53,17 +53,16 @@ public class WebSecurityConfig {
     }
 
 
-   /*
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.builder()
-                .username("jau")
-                .password(passwordEncoder().encode("jau"))
+                .username("admin")
+                .password(passwordEncoder().encode("1234"))
                 .roles("ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user);
     }
-    */
+
 
     @Bean
     AuthenticationManager authenticationManager(HttpSecurity http, PasswordEncoder passwordEncoder) throws Exception {
