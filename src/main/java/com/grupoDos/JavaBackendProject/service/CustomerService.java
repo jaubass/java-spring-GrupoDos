@@ -1,9 +1,11 @@
 package com.grupoDos.JavaBackendProject.service;
 
+import ch.qos.logback.core.encoder.EchoEncoder;
 import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,6 +70,16 @@ public class CustomerService implements GenericService<Customer>{
     public boolean deleteById(long id) throws Exception {        
     	this.repository.deleteById(id);
     	return false;
+    }
+
+    public UserDetails findOneByEmail(String email) throws Exception {
+        try {
+            Optional<UserDetails> opt = this.repository.findOneByEmail(email);
+            UserDetails customer = opt.get();
+            return customer;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
     }
 
 

@@ -35,7 +35,7 @@ public class WebSecurityConfig {
             .requestMatchers("/signup", "/signin").permitAll()
             .anyRequest().authenticated()
             .and().formLogin().loginPage("/signin")
-            //.loginProcessingUrl("/authenticateUser")
+            .loginProcessingUrl("/signin")
             //.defaultSuccessUrl("/").permitAll()
             .and().sessionManagement();
             //.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
