@@ -16,10 +16,11 @@ public class UserDetailsServideImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        System.out.println("Estoy buscando el email: " + email + " =======================");
         Customer customer = customerRepository
                 .findOneByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("El usuario" + email + "no existe"));
-
+        System.out.println("¡Lo encontre! ===========================");
         return new UserDetailsImpl(customer);
     }
 }

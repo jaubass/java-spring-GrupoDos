@@ -26,7 +26,8 @@ public class WebSecurityConfig {
                 .requestMatchers("/css/**", "/img/**", "/", "/menu", "/restaurants").permitAll()
                 .requestMatchers("/error", "/signup", "/signin").permitAll()
                 .anyRequest().authenticated()
-                .and().httpBasic()
+                //.and().httpBasic()
+                .and().formLogin()
                 .and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();

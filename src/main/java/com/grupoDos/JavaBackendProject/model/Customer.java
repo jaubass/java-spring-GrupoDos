@@ -13,6 +13,7 @@ public class Customer implements Serializable {
 	private Long id;
 
 	private String name;
+	@Column(nullable = false, unique = true)
 	private String email;
 	private String password;
 	private String telf;
