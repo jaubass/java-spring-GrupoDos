@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.grupoDos.JavaBackendProject.repository.CustomerRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
 
@@ -17,6 +20,7 @@ public class JavaBackendProjectApplication {
 		ApplicationContext context = SpringApplication.run(JavaBackendProjectApplication.class, args);
 
 		RestaurantRepository repoRestaurant = context.getBean(RestaurantRepository.class);
+		UserRepository repoUser = context.getBean(UserRepository.class);
 		CustomerRepository repoCustomer = context.getBean(CustomerRepository.class);
 		MenuItemRepository repoMenu = context.getBean(MenuItemRepository.class);
 
@@ -46,11 +50,17 @@ public class JavaBackendProjectApplication {
 		}
 
 		// Create user, if not exists
-
+		Optional<User> opt = repoUser.findById(1L);
+		if (opt.isEmpty()) {
+			User user = new User(null, "user", passwordEncoder().encode("1234"));
+			User user2 = new User(null, "admin", passwordEncoder().encode("1234"));
+			repoUser.save(user);
+			repoUser.save(user2);
+		}
 
 		// Create customer, if not exists
-		Optional<Customer> opt = repoCustomer.findById(1L);
-		if (opt.isEmpty()) {
+		Optional<Customer> opt2 = repoCustomer.findById(1L);
+		if (opt2.isEmpty()) {
 			Customer customer = new Customer(
 					null,
 					"Cliente Ejemplo",
@@ -107,4 +117,10 @@ public class JavaBackendProjectApplication {
 
 		System.out.println("\nI am ready to serve!");
 	}
+
+	@Bean
+	public static PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
 }
