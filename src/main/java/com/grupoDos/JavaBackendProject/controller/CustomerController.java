@@ -3,10 +3,6 @@ package com.grupoDos.JavaBackendProject.controller;
 import com.grupoDos.JavaBackendProject.model.Customer;
 import com.grupoDos.JavaBackendProject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,8 +31,8 @@ public class CustomerController {
     public String index(Model model) throws Exception {
         try {
             Customer customer = this.svcCustomer.findById(1L);
-            Authentication auth  = SecurityContextHolder.getContext().getAuthentication();
-            model.addAttribute("auth", auth);
+            // Authentication auth  = SecurityContextHolder.getContext().getAuthentication();
+            // model.addAttribute("auth", auth);
             model.addAttribute("customer", customer);
             return "profile";
 
@@ -83,24 +79,4 @@ public class CustomerController {
         model.addAttribute("customer", customer);
         return "customer_added";
 	}
-
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/hello-admin")
-    public String adminPing(){
-        return "Only Admins Can Read This";
-    }
-
-    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
-    @GetMapping("/hello-admin-user")
-    public String adminUser(){
-        return "Only Admins and Users Can Read This";
-    }
-
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/hello-user")
-    public String userPing(){
-        return "Any User Can Read This";
-    }
-
-
 }

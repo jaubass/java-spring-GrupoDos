@@ -35,18 +35,6 @@ public class Customer implements Serializable {
 		this.postalCode = postalCode;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "USER_ROLES",
-			joinColumns = {
-			@JoinColumn(name = "customer_id")
-			},
-			inverseJoinColumns = {
-			@JoinColumn(name = "role_id")
-			})
-	private Set<Role> roles;
-
-	private static final long serialVersionUID = 1L;
-
 	public Long getId() {
 		return id;
 	}
@@ -110,10 +98,5 @@ public class Customer implements Serializable {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 }
 

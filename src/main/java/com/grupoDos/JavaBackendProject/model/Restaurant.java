@@ -1,7 +1,6 @@
 package com.grupoDos.JavaBackendProject.model;
 
 import jakarta.persistence.*;
-import javax.validation.constraints.*;
 import java.util.List;
 
 @Entity
@@ -11,7 +10,6 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "{NotEmpty.Restautant.name}")
     private String name;
     private String email;
     private int phone;
